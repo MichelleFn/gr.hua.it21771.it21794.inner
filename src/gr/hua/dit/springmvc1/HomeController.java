@@ -2,9 +2,13 @@ package gr.hua.dit.springmvc1;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import gr.hua.dit.springmvc1.entity.User;
 
 @Controller
 public class HomeController {
@@ -12,24 +16,35 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String showfirstpage() {
-	        return "index";
+	        return "main-menu";
 	}
+
+	@RequestMapping("/geography")
+	public String geoHome() {
+		return "geoHome";
+	}
+
+	@RequestMapping("/diet")
+	public String dietHome() {
+		return "dietHome";
+	}
+
+	@RequestMapping("/econ")
+	public String econHome() {
+		return "econHome";
+	}
+
+//	@RequestMapping("/it")
+//	public String itHome() {
+//		return "itHome";
+//	}
 	
-	@RequestMapping("/showForm")
-	public String showForm() {
-	        return "helloworld-form";
-	}
-	@RequestMapping("/processForm")
-	public String processForm() {
-	        return "helloworld";
-	}
-	@RequestMapping("/processFormv2")
-	public String processFormv2(HttpServletRequest request, Model model) {
-	   String theName = request.getParameter("studentName");
-	   theName = theName.toUpperCase();
-	   String result ="Hello " + theName;
-	   model.addAttribute("message",result);
-	   return "helloworld";
+	
+	@RequestMapping(value = "/it", method = RequestMethod.GET) // loads page for entering user details
+	public String applyThesis(Model model) {
+		User user = new User();
+		model.addAttribute("user", user);
+		return "itHome";
 	}
 	
 	

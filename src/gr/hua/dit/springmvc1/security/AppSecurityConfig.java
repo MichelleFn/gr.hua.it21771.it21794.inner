@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,25 +24,62 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	DataSource dataSource;
-	
+
 	@Autowired
-	  private UserDetailsService userDetailsService;
+	private UserDetailsService userDetailsService;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-	    auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-
-
-	}
-
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage("/login")
-				.loginProcessingUrl("/authUser").permitAll().and().logout().permitAll().and().exceptionHandling()
-				.accessDeniedPage("/403");
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 
 	}
+
+//	@Override
+//	protected void configure(HttpSecurity http) throws Exception {
+//		http.authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage("/login")
+//				.loginProcessingUrl("/authUser").permitAll()
+//				.and().logout().permitAll().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll()
+//				.and().exceptionHandling()
+//				.accessDeniedPage("/403")
+//				.and().csrf().disable();
+//
+//	}
+	
+	
+	@Configuration
+    @Order(1)
+    public static class ApiWebSecurityConfig extends WebSecurityConfigurerAdapter{
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+        	  http.csrf().disable()
+              .antMatcher("/api/**")
+              .authorizeRequests()
+                  .anyRequest().authenticated()
+                  .and()
+              .httpBasic();
+        }
+    }
+
+    @Configuration
+    @Order(2)
+    public static class FormWebSecurityConfig extends WebSecurityConfigurerAdapter{
+
+        @Override
+        public void configure(WebSecurity web) throws Exception {
+    		web.ignoring().antMatchers("/resources/**");
+        }
+
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+        	http.authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage("/login")
+			.loginProcessingUrl("/authUser").permitAll().and().logout().permitAll().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll()
+			.and().exceptionHandling()
+			.accessDeniedPage("/403");
+        }
+    }
+
+
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
@@ -57,4 +95,3 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 		return encoder;
 	}
 }
-
