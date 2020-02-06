@@ -1,39 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<!--this is tempory-->
+<%
+	String id = request.getParameter("userid");
+	String driver = "com.mysql.jdbc.Driver";
+	String connectionUrl = "jdbc:mysql://remotemysql.com:3306/";
+	String database = "4aW5L5SmF2";
+	String userid = "4aW5L5SmF2";
+	String password = "sq4txyrQSt";
+	try {
+		Class.forName(driver);
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+	Connection connection = null;
+	Statement statement = null;
+	ResultSet resultSet = null;
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
+<script src="<c:url value="/resources/js/Geothesis.js" />"></script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Τμήμα Πληροφορικής και Τηλεματικής</title>
 </head>
 <body>
-	<h2>
-		<spring:message code="lbl.page" text="Add New Student" />
-	</h2>
-	<br />
-	<form:form method="post" modelAttribute="user">
+	<form:form method="POST" action="itHome">
+	
 		<table>
+			<%
+			try {
+				connection = DriverManager.getConnection(connectionUrl + database, userid, password);
+				statement = connection.createStatement();
+				String sql = "select * from thesis where department='uit' ;";
+				resultSet = statement.executeQuery(sql);
+				while (resultSet.next()) {
+		%>
 			<tr>
-				<label>Username</label>
-				<td><spring:message code="username" text="username" /></td>
-				<td><form:input path="username" /></td>
-			</tr>
-			<tr>
-				<label>Department</label>
-				<td><spring:message code="department" text="department" /></td>
-				<td><form:input path="department" /></td>
-				<label>for department use "it"</label>
 				
+				<input type="radio" name="<%=resultSet.getString("subject") %>" value="<%=resultSet.getString("subject")%>"> <%=resultSet.getString("subject")%><br>
+					
 			</tr>
 			
+			<%
+			}
+				connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		%>
 			<tr>
-				<label>thesis name</label>
-				<td><spring:message code="ThesisName" text="ThesisName" /></td>
-				<td><form:input path="ThesisName" /></td>
-				<label>please type the name exactly as it appears in the list above</label>
+				<td colspan="3"><input type="submit" /></td>
 			</tr>
 		</table>
 	</form:form>
-	>
 </body>
+
 </html>

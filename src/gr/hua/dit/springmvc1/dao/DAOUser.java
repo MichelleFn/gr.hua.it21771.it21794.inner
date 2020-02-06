@@ -22,5 +22,7 @@ public interface DAOUser {
 	public void DeleteSupportedServices();
 	
 	public void Enable();
+	
+	
 
 }

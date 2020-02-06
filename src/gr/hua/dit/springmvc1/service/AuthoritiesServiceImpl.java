@@ -18,8 +18,8 @@ public class AuthoritiesServiceImpl implements AuthoritiesService {
 	
 	@Transactional
 	@Override
-	public void InsertRole(User user, String authority) {
-		daoauth.InsertRole(user,authority);
+	public void InsertRole(User user) {
+		daoauth.InsertRole(user);
 
 	}
 

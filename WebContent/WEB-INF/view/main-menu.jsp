@@ -14,64 +14,68 @@
 <body>
 
 	<sec:authorize access="hasRole('ROLE_USER')">
-	
+
 		<div align="center">
-			<p>Κεντρική σελίδα δηλώσεων πτυχιακών εργασιών Χαροκοπείου Πανεπιστημίου</p>
+			<p></p>
+			<p>
+				<b> <font size="4"> Κεντρική Σελίδα Δηλώσεων </b> </font>
+			</p>
+			<p>
+				<b> <font size="4"> Προπτυχιακών Πτυχιακών Εργασιών
+						Χαροκοπείου Πανεπιστημίου </b> </font>
+			</p>
+
 
 			<div align="center">
 
-				<style type="text/css">
-input[type=submit] {
-	padding: 5px 15px;
-	background: #ccc;
-	border: 0 none;
-	cursor: pointer;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-}
-</style>
-				<form action="geography" method="GET">
-					<input type="submit" value="Τμήμα Γεωγραφίας" />
-				</form>
 
-				<form action="diet" method="GET">
-					<input type="submit"
-						value="Τμήμα Επιστήμης Διαιτολογίας και Διατροφής" />
+				<form action="geography">
+					<button type="submit" class="btn btn-primary">Τμήμα
+						Γεωγραφίας</button>
 				</form>
-
-				<form action="econ" method="GET">
-					<input type="submit"
-						value="Τμήμα Οικοιακής Οικονομίας και Οικολογίας" />
+				<p></p>
+				<form action="diet">
+					<button type="submit" class="btn btn-primary">Τμήμα Επιστήμης
+						Διαιτολογίας και Διατροφής</button>
 				</form>
-
-				<form action="it" method="GET">
-					<input type="submit" value="Τμήμα Πληροφορικής και Τηλεματικής" />
+				<p></p>
+				<form action="econ">
+					<button type="submit" class="btn btn-primary">Τμήμα Οικοιακής
+						Οικονομίας και Οικολογίας</button>
+				</form>
+				<p></p>
+				<form action="it">
+					<button type="submit" class="btn btn-primary">Τμήμα
+						Πληροφορικής και Τηλεματικής</button>
 				</form>
 	</sec:authorize>
-	<sec:authorize access="hasRole('ROLE_USER')">
-		<p>i am the USER</p>
-	</sec:authorize>
-	
-	
+
+
+
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
-		<p>i am the ADMIN</p>
-		<p>Ενεργοποίηση φοιτητών για δήλωση πτυχιακής</p>
-
-	<form action="enableUser" method="GET">
-			<input type="submit" value="ENABLE" />
-		</form>
-	</sec:authorize>
-
-	
-
-	<sec:authorize access="hasRole('ROLE_MASTER')">
-		<p>i am the MASTER</p>
-		<div align="center">
-		<p>Κατάλογος Χρηστών</p>
-
 		<div align="center">
 
-			<style type="text/css">
+			<p>
+				<b><font size="6">Ενεργοποίηση φοιτητών για δήλωση
+						πτυχιακής</font></b>
+			</p>
+			<p>Οι φοιτητές που θα ενεργοποιηθουν θα έχουν την δυνατότητα να
+				δηλώσουν πτυχιακή έργασία με βάση</p>
+			<ul>
+				<li>Τον αρθιμό των χρωστούμενων μαθημάτων</li>
+				<li>Το τρέχων εξάμηνο στο οποίο βρίσκονται</li>
+				
+			</ul>
+			<p>ΓΙα ενεργοποίηση πατήστε "Συνέχεια"</p>
+			<form action="enable" method="GET">
+				<input type="submit" value="Συνέχεια" />
+			</form>
+</body>
+</sec:authorize>
+
+
+<sec:authorize access="hasRole('ROLE_MASTER')">
+<style type="text/css">
 input[type=submit] {
 	padding: 5px 15px;
 	background: #ccc;
@@ -80,33 +84,55 @@ input[type=submit] {
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 }
+.sidenav {
+  height: 100%; 
+  width: 160px; 
+  position: fixed;
+  z-index: 1; 
+  top: 3; 
+  left: 0;
+  background-color: #333; 
+  overflow-x: hidden; 
+  padding-top: 20px;
+}
+
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+}
+
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+
+.main {
+  margin-left: 160px;
+  padding: 0px 10px;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 </style>
-			<form action="addStudent" method="GET">
-				<input type="submit" value="Εισαγωγή Χρήστη" />
-			</form>
-
-			<form action="deleteStudent" method="GET">
-				<input type="submit"
-					value="Διαγραφή Χρήστη" />
-			</form>
-
-			<form action="updateStudent" method="GET">
-				<input type="submit"
-					value="Ανανέωση Χρήστη" />
-			</form>
-
-			<form action="addRole" method="GET">
-				<input type="submit" value="Εισαγωγή Ρόλου" />
-			</form>
-			<form action="deleteRole" method="GET">
-				<input type="submit" value="Διαγραφή Ρόλου" />
-			</form>
-			<!--<form action="addAction" method="GET">
-				<input type="submit" value="Εισαγωγή ενέργείας" />
-			</form>-->
-			<!-- <form action="deleteRole" method="GET">
-				<input type="submit" value="Διαγραφή ενέργειας" />
-			</form> -->
-	</sec:authorize>
+<div class="sidenav">
+<br>
+<br>
+  <a href="/Springmvc1/addStudent">Εισαγωγή Χρήστη</a>
+  <a href="/Springmvc1/deleteStudent">Διαγραφή Χρήστη</a>
+  <a href="/Springmvc1/updateStudent">Ανανέωση Χρήστη</a>
+  <a href="/Springmvc1/deleteRole">Διαγραφή ρόλου</a>
+</div>
+<div align="middle">
+<p><i><font size="5">Υπηρεσία Διαχείρησης Καταλόγου Χρηστών</font></i></p>
+			
+</sec:authorize>
 </body>
 </html>

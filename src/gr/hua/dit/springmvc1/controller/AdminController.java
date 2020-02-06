@@ -24,11 +24,15 @@ public class AdminController {
 	@Autowired
 	UserService userserv;
 	
+	@RequestMapping(value  = "/enable" , method = RequestMethod.GET)
+	public String enableFirst() {
+		return "admin";
+	}
+	
 	@RequestMapping(value  = "/enableUser" , method = RequestMethod.GET)
 	public String enable() {
 		return "admin";
 	}
-	
 	@RequestMapping(value = "/enableUser" , method = RequestMethod.POST)
 	public String enableStudent() {
 		userserv.EnableService();

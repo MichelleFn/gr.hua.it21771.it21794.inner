@@ -52,7 +52,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     public static class ApiWebSecurityConfig extends WebSecurityConfigurerAdapter{
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-        	  http.csrf().disable()
+        	  http.cors().and().csrf().disable()
               .antMatcher("/api/**")
               .authorizeRequests()
                   .anyRequest().authenticated()
@@ -72,10 +72,11 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-        	http.authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage("/login")
+        	http.cors().and().authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage("/login")
 			.loginProcessingUrl("/authUser").permitAll().and().logout().permitAll().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll()
 			.and().exceptionHandling()
-			.accessDeniedPage("/403");
+			.accessDeniedPage("/403")
+			.and().csrf().disable();
         }
     }
 

@@ -23,6 +23,9 @@ public class DAOUserImpl implements DAOUser {
 
 	@Autowired
 	PasswordEncoder bCryptPasswordEncoder;
+	
+	@Autowired
+	DAOAuthorities daoauthorities;
 
 	@Override
 	public User getUser(String username) {
@@ -38,21 +41,14 @@ public class DAOUserImpl implements DAOUser {
 		
 
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		
-		
-		
+		user.getAuthorities();
 		currentSession.save(user);
+		daoauthorities.InsertRole(user);
 		
-		
-//		merchant = merchantRepository.save(merchant);
-//        Merchant finalMerchant = merchant;
-//        merchant.getAddresses().forEach(address -> {
-//           address.setMerchant(finalMerchant);
-//           addressRepository.save(address);
-//       });
-//       return merchant;
+
 
 	}
+	
 
 	@Override
 	public void DeleteUserDetails(String username) {
@@ -141,5 +137,23 @@ public class DAOUserImpl implements DAOUser {
 //		}
 
 	}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

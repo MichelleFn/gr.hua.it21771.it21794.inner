@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>Ενεργοποίηση φοιτητών για δήλωση πτυχιακής</p>
+	<div align="center">
+		<p>Ενεργοποίηση φοιτητών για δήλωση πτυχιακής</p>
 
-	<form action="enableUser" method="POST">
+		<form action="enableUser" method="POST">
 			<input type="submit" value="ENABLE" />
 		</form>
-
 </body>
 </html>

@@ -30,41 +30,34 @@
 <title>Τμήμα Πληροφορικής και Τηλεματικής</title>
 </head>
 <body>
-<div align="center">
-<p><b><font size="4">Καλώς Ήρθατε Στο Σύστημα Δηλώσεων Πτυχιακών Εργασιών Του Προπτυχιακού Τμήματος</font></b></p>
-<p>Επιλέξτε μια απο τις παρακάτω πτυχιακές εργασίες</p>
-	<form:form method="POST" action="geoHome">
-	<div>
-
+	<form:form method="POST" action="itHome">
+	
 		<table>
 			<%
-				try {
-						connection = DriverManager.getConnection(connectionUrl + database, userid, password);
-						statement = connection.createStatement();
-						String sql = "select * from thesis where department='ugeo' ;";
-						resultSet = statement.executeQuery(sql);
-						while (resultSet.next()) {
-			%>
+			try {
+				connection = DriverManager.getConnection(connectionUrl + database, userid, password);
+				statement = connection.createStatement();
+				String sql = "select * from thesis where department='pit' ;";
+				resultSet = statement.executeQuery(sql);
+				while (resultSet.next()) {
+		%>
 			<tr>
-
-				<input type="radio" name="subject"
-					value="<%=resultSet.getString("subject")%>">
-				<%=resultSet.getString("subject")%><br>
-
+				
+				<input type="radio" name="<%=resultSet.getString("subject") %>" value="<%=resultSet.getString("subject")%>"> <%=resultSet.getString("subject")%><br>
+					
 			</tr>
-
+			
 			<%
-				}
-						connection.close();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-			%>
+			}
+				connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		%>
 			<tr>
 				<td colspan="3"><input type="submit" /></td>
 			</tr>
 		</table>
-		</div>
 	</form:form>
 </body>
 

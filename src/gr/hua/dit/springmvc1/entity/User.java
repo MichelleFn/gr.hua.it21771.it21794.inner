@@ -60,6 +60,9 @@ public class User implements Serializable {
 	@Column(name = "ThesisName")
 	private String ThesisName;
 	
+	@Column(name = "role")
+	private String role;
+	
 	@OneToMany(cascade = CascadeType.ALL,fetch=FetchType.EAGER, mappedBy = "user")
 	private Set<Authorities> authorities = new HashSet<>();
 
@@ -73,7 +76,7 @@ public class User implements Serializable {
 
 	public User(String username, String password, String department, String firstName, String surname,
 			int currentSemester, int totalClasses, int passedClasses, int failedClasses, boolean enabled,
-		 int progessIndicator,String direction, String program,String ThesisNameS) {
+		 int progessIndicator,String direction, String program, String ThesisName , String role) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -89,6 +92,7 @@ public class User implements Serializable {
 		this.direction = direction;
 		this.program = program;
 		this.ThesisName = ThesisName;
+		this.role = role;
 	}
 
 	public void setUsername(String username) {
@@ -209,6 +213,15 @@ public class User implements Serializable {
 
 	public void setThesisName(String thesisName) {
 		ThesisName = thesisName;
+	}
+	
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	@Override

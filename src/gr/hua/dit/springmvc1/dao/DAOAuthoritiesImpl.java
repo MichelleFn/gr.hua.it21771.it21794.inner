@@ -1,7 +1,11 @@
 package gr.hua.dit.springmvc1.dao;
 
+import java.util.Iterator;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -13,80 +17,40 @@ import gr.hua.dit.springmvc1.dao.*;
 
 @Repository
 public class DAOAuthoritiesImpl implements DAOAuthorities {
-	
+
 	@Autowired
-	private SessionFactory sessionFactory;
-	
-//	@Override
-//	public void InsertRole(Authorities authority) {
-//
-//		Session session = sessionFactory.getCurrentSession();
-//		DAOUserImpl daoUser = new DAOUserImpl();
-//		User user =daoUser.getUser(authority.getUser().getUsername());
-//		authority.setUser(user);
-//		
-//		try {
-//		if(user.equals(null)) {
-//			System.out.println("User"+authority.getUser().getUsername()+"doesn't exist");
-//		}else {
-//			session.save(authority);
-//		}
-//		}catch(NullPointerException ne) {
-//			System.out.println("User deosnt exists");
-//		}
-//		
-//
-//	}
-	
+	SessionFactory sessionFactory;
+	@Autowired
+	DAOUser DAOUser;
+
 	@Override
-	public void InsertRole(User user, String authority) {
+	public void InsertRole(User user) {
 
 		Session session = sessionFactory.getCurrentSession();
-		Authorities auth = new Authorities();
-		auth.setUser(user);
-		auth.setAuthority(authority);
-		
-		session.save(auth);
-		
+		Authorities authority = new Authorities();
+		authority.setUser(user);
+		authority.setAuthority(user.getRole());
+		session.save(authority);
 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	@Override
 	public void DeleteRole(Authorities authority) {
 
-//		sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
-//		session.delete(authority);
-		session.beginTransaction();
-		
+
+
 		DAOUserImpl daoUser = new DAOUserImpl();
-		User user =daoUser.getUser(authority.getUser().getUsername());
-	
-		//System.out.println(user);
+		User user = daoUser.getUser(authority.getUser().getUsername());
+
 		try {
-		if(user.equals(null)) {
-			System.out.println("User"+authority.getUser().getUsername()+"doesn't exist");
-		}else {
-			session.delete(authority);
-//			session.getTransaction().commit();
-//			session.close();
-		}
-		}catch(NullPointerException ne) {
+			if (user.equals(null)) {
+				System.out.println("User" + authority.getUser().getUsername() + "doesn't exist");
+			} else {
+				session.delete(authority);
+
+			}
+		} catch (NullPointerException ne) {
 			System.out.println("User deosnt exists");
 		}
 

@@ -29,5 +29,12 @@ public class ThesisServiceImpl implements ThesisService{
 		dao.SaveThesis(thesis);
 		
 	}
+    @Transactional
+	@Override
+	public void SaveStudentThesis(Thesis thesis) {
+		dao.SaveStudentThesis(thesis);
+	}
+	
+
 
 }

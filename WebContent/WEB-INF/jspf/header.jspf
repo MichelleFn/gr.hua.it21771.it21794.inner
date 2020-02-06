@@ -29,15 +29,75 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style type="text/css">
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
 
+.topnav {
+	overflow: hidden;
+	background-color: #333;
+}
+
+.topnav a {
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.topnav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.topnav a.active {
+	background-color: #4CAF50;
+	color: white;
+}
+
+.topnav-right {
+	float: right;
+}
+</style>
+
+
+<style>
+.header {
+  overflow: hidden;
+  padding: 20px 10px;
+}
+.header a.logo {
+  font-size: 20px;
+  font-weight: bold;
+   color: black;
+}
+
+</style>
 </head>
 <body>
-	<header class="navbar">
-		<div class="navbar-primar">
-			<sec:authorize access="isAuthenticated()">
-				<a href="<c:url value="/logout" />" class="btn btn-link" name="logout-nav"> Logout</a>
-			</sec:authorize>
+<body style="background-color:powderblue;">
+<header>
+	<sec:authorize access="isAuthenticated()">
+		<div class="topnav">
+	
+		
+			<a>Χαροκόπειο Πανεπιστήμιο</a>
+
+			<div class="topnav-right">
+				<div class="topnav">
+					<a  href="<c:url value="/" />">Home</a> 
+					<a href="<c:url value="/logout" />">Logout</a>
+					
+					 <a href="#about">About</a>
+					</div>
+				</div>
+
 		</div>
-	</header>
+	</sec:authorize>
+</header>
 
 	<div class="container">
