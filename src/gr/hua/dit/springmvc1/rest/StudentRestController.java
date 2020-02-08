@@ -38,9 +38,17 @@ public class StudentRestController {
 	}
 	@CrossOrigin(origins = "http://localhost:8080")
 	@PostMapping(value = "/thesis", consumes = "application/json", produces = "application/json")
-	public void createPerson(@RequestBody Thesis thesis) {
+	public void postThesis(@RequestBody Thesis thesis) {
 		thesis.setId("0");
 		thesisserv.SaveThesis(thesis);
 	}
-
+	@ResponseBody
+	@CrossOrigin(origins = "http://localhost:8080")
+	@PostMapping(value = "/users", consumes = "application/json", produces = "application/json")
+	public List<User> returnStudents(@RequestBody Thesis thesis) {
+		String sub = thesis.getSubject();
+		
+		return null;
+		
+	}
 }

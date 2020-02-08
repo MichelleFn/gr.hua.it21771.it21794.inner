@@ -25,13 +25,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="<c:url value="/resources/js/Geothesis.js" />"></script>
+
 <meta charset="UTF-8">
 <title>Τμήμα Πληροφορικής και Τηλεματικής</title>
+<style>
+input[type="radio"].fancy {
+    opacity: 0;
+    margin-right: -12px;
+}
+
+input[type="radio"].fancy + label::before {
+    content: "";
+    overflow: hidden;
+    font-size: 10px;
+    text-align: center;
+    margin-right: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #333333;
+    background-color: #EEEEEE;
+    width: 12px;
+    height: 12px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+
+input[type="radio"].fancy:checked + label::before {
+    content: "•";
+    color: #777777;
+    background-color: #FFFFFF;
+}
+
+input[type="radio"].fancy:disabled + label::before {
+    background-color: #999999;
+}
+</style>
 </head>
 <body>
 <div align="center">
-<p><b><font size="4">Καλώς Ήρθατε Στο Σύστημα Δηλώσεων Πτυχιακών Εργασιών Του Προπτυχιακού Τμήματος</font></b></p>
+<p><b><font size="5">Καλώς Ήρθατε Στο Σύστημα Δηλώσεων</font></b></p> <p><b><font size="5">Πτυχιακών Εργασιών Του Προπτυχιακού Τμήματος</font></b></p>
 <p>Επιλέξτε μια απο τις παρακάτω πτυχιακές εργασίες</p>
 	<form:form method="POST" action="geoHome">
 	<div>
@@ -47,9 +80,10 @@
 			%>
 			<tr>
 
-				<input type="radio" name="subject"
+				<input class="fancy" type="radio" id="radio1" name="subject"
 					value="<%=resultSet.getString("subject")%>">
 				<%=resultSet.getString("subject")%><br>
+				
 
 			</tr>
 

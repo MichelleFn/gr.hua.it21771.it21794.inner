@@ -74,6 +74,11 @@ public class UserServiceImpl implements UserService{
 		DAOuser.Enable();
 		
 	}
+
+	@Override
+	public List<User> getListOfStudentService(String sub) {
+		return DAOuser.getListOfStudentsForThesis(sub);
+	}
 	
 	
 	

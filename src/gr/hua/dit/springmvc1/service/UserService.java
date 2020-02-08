@@ -26,6 +26,7 @@ public interface UserService {
 	
 	public void EnableService();
 
+	public List<User> getListOfStudentService(String sub);
 	
 	
 }

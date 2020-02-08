@@ -12,6 +12,8 @@
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>${pageTitle}</title>
 <!-- reference our style sheet -->
 <link type="text/css" rel="stylesheet"
@@ -27,9 +29,13 @@
 <link rel="stylesheet"
 	href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
 
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <style type="text/css">
+
+
 body {
 	margin: 0;
 	font-family: Arial, Helvetica, sans-serif;
@@ -67,37 +73,152 @@ body {
 
 <style>
 .header {
-  overflow: hidden;
-  padding: 20px 10px;
+	overflow: hidden;
+	padding: 20px 10px;
 }
+
 .header a.logo {
-  font-size: 20px;
-  font-weight: bold;
-   color: black;
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+}
+</style>
+<style>
+.myButton {
+	background: linear-gradient(to bottom, #0288bd 5%, #0288bd 100%);
+	background-color: #0288bd;
+	border-radius: 28px;
+	border: 1px solid #0288bd;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 17px;
+	font-weight: bold;
+	padding: 10px 31px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #2f6627;
+}
+
+.myButton:hover {
+	background: linear-gradient(to bottom, #0288bd 5%, #0288bd 100%);
+	background-color: #0288bd;
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
+
+#username {
+	border: 0;
+	outline: 0;
+	border-bottom: 2px solid blue;
+	background-color: #acfafc;
+}
+#password {
+	border: 0;
+	outline: 0;
+	border-bottom: 2px solid blue;
+	background-color: #acfafc;
+}
+.sidenav {
+	height: 100%;
+	width: 160px;
+	position: fixed;
+	z-index: 1;
+	top: 3;
+	left: 0;
+	background-color: #333;
+	overflow-x: hidden;
+	padding-top: 20px;
+}
+
+.sidenav a {
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 15px;
+	color: #ffffff;
+	display: block;
+}
+
+.sidenav a:hover {
+	color: #3ac7c0;
+}
+
+.main {
+	margin-left: 160px;
+	padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+	.sidenav {
+		padding-top: 15px;
+	}
+	.sidenav a {
+		font-size: 18px;
+	}
 }
 
 </style>
+
+
+
 </head>
 <body>
-<body style="background-color:powderblue;">
-<header>
-	<sec:authorize access="isAuthenticated()">
-		<div class="topnav">
-	
-		
-			<a>Χαροκόπειο Πανεπιστήμιο</a>
+<body style="background-color: #acfafc;">
+	<header>
+		<sec:authorize access="isAuthenticated()">
+			<div class="topnav">
 
-			<div class="topnav-right">
-				<div class="topnav">
-					<a  href="<c:url value="/" />">Home</a> 
-					<a href="<c:url value="/logout" />">Logout</a>
-					
-					 <a href="#about">About</a>
+				<a>Χαροκόπειο Πανεπιστήμιο</a>
+				
+
+				<div class="topnav-right">
+					<div class="topnav">
+						<a href="<c:url value="/" />">Home</a> 
+						<a href="<c:url value="/logout" />">Logout</a> 
+						<a href="#about">About</a>
+				
 					</div>
+
 				</div>
-
-		</div>
+				</div>
+		</sec:authorize>
+	</header>
+	
+	
+	
+	
+	
+	
+	
+<sec:authorize access="hasRole('ROLE_USER')">
+	<div class="sidenav">
+		<a href="/Springmvc1/geography">Τμημα Γεωγραφίας - Προπτυχιακό</a> 
+		<a href="/Springmvc1/pgeography">Τμημα Γεωγραφίας - Μεταπτυχιακό</a>
+		 <a href="/Springmvc1/diet">Τμημα Διατροφής και Διαιτολογίας - Προπτυχιακό</a> 
+		<a href="/Springmvc1/pdiet">Τμημα Διατροφής και Διαιτολογίας - Μεταπτυχιακό</a>
+		 <a href="/Springmvc1/econ">Τμημα Οικοιακής Οικονομίας και Οικολογίας - Προπτυχιακό</a> 
+		<a href="/Springmvc1/pecon">Τμημα Οικοιακής Οικονομίας και Οικολογίας - Μεταπτυχιακό</a>
+			 <a href="/Springmvc1/it">Τμημα Πληροφορικής και Τηλεματικής - Προπτυχιακό</a> 
+		<a href="/Springmvc1/pit">Τμημα Πληροφορικής και Τηλεματικής - Μεταπτυχιακό</a>
+	</div>
 	</sec:authorize>
-</header>
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<div class="container">

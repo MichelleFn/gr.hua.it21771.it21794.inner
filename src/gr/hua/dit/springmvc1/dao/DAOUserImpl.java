@@ -135,11 +135,22 @@ public class DAOUserImpl implements DAOUser {
 		session.update(user);
 
 //		}
+		
 
 	}
 
 
-	
+	@Override
+	public List<User> getListOfStudentsForThesis(String sub) {
+
+		Session session = sessionFactory.getCurrentSession();
+
+		Query<User> query = session.createQuery("from User u where u.subject LIKE '%sub%'", User.class);
+
+		List<User> Users = query.getResultList();
+		System.out.println(Users);
+		return Users;
+	}
 	
 	
 	

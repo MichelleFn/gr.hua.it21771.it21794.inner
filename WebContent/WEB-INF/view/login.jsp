@@ -20,12 +20,15 @@
 		<i>Sorry! Invalid username/password!</i>
 	</c:if>
 	
-			<label class="form-label">Όνομα Χρήστη</label> 
-			<input type="text" name="username"/>
+			<br>
+			<input type="text" id ="username" placeholder="Όνομα Χρήστη" name="username" required/>
 		
-			<label class="form-label">Κωδικός</label> 
-			<input type="password" name="password"/><br><br>
-			<button class="btn" type="submit">Login</button>
+			<br>
+			<br>
+			<input type="password" id="password" placeholder="Κωδικός Πρόσβασης" name="password" required/><br><br>
+			<button class="myButton" type="submit">Σύνδεση</button>
+	 
+      
 		
 			</div>
 			

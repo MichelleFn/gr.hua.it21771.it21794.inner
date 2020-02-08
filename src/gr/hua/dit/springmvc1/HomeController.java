@@ -34,18 +34,54 @@ public class HomeController {
 		return "econHome";
 	}
 
-//	@RequestMapping("/it")
-//	public String itHome() {
-//		return "itHome";
-//	}
-	
-	
-	@RequestMapping(value = "/it", method = RequestMethod.GET) // loads page for entering user details
-	public String applyThesis(Model model) {
-		User user = new User();
-		model.addAttribute("user", user);
+	@RequestMapping("/it")
+	public String itHome() {
 		return "itHome";
 	}
+	
+	@RequestMapping("/pgeography")
+	public String mgeoHome() {
+		return "pgeoHome";
+	}
+
+	@RequestMapping("/pdiet")
+	public String mdietHome() {
+		return "pdietHome";
+	}
+
+	@RequestMapping("/pecon")
+	public String meconHome() {
+		return "pEconHome";
+	}
+
+	@RequestMapping("/pit")
+	public String pitHome() {
+		return "pitHome";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	
+//	@RequestMapping(value = "/it", method = RequestMethod.GET) // loads page for entering user details
+//	public String applyThesis(Model model) {
+//		User user = new User();
+//		model.addAttribute("user", user);
+//		return "itHome";
+//	}
 	
 	
 	
