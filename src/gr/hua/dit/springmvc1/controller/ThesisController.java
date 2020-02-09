@@ -35,7 +35,7 @@ public class ThesisController {
 	@RequestMapping(value = "/geoHome", method = RequestMethod.POST) 
 	public String geoThesis(@ModelAttribute("thesis") Thesis thesis, BindingResult result) {
 		thesisService.SaveStudentThesis(thesis);
-		return "redirect:/";
+		return "redirect:/success2";
 	}
 	
 	@RequestMapping(value = "/dietHome", method = RequestMethod.GET) 
@@ -48,7 +48,7 @@ public class ThesisController {
 	@RequestMapping(value = "/dietHome", method = RequestMethod.POST) 
 	public String dietThesis(@ModelAttribute("thesis") Thesis thesis, BindingResult result) {
 		thesisService.SaveStudentThesis(thesis);
-		return "redirect:/";
+		return "redirect:/success2";
 	}
 	
 	@RequestMapping(value = "/econHome", method = RequestMethod.GET) 
@@ -61,7 +61,7 @@ public class ThesisController {
 	@RequestMapping(value = "/econHome", method = RequestMethod.POST) 
 	public String econThesis(@ModelAttribute("thesis") Thesis thesis, BindingResult result) {
 		thesisService.SaveStudentThesis(thesis);
-		return "redirect:/";
+		return "redirect:/success2";
 	}
 	
 	@RequestMapping(value = "/itHome", method = RequestMethod.GET) 
@@ -74,6 +74,57 @@ public class ThesisController {
 	@RequestMapping(value = "/itHome", method = RequestMethod.POST) 
 	public String itThesis(@ModelAttribute("thesis") Thesis thesis, BindingResult result) {
 		thesisService.SaveStudentThesis(thesis);
-		return "redirect:/";
+		return "redirect:/success2";
 	}
+	@RequestMapping(value = "/pit", method = RequestMethod.GET) 
+	public String pitThesis(Model model) {
+		Thesis thesis = new Thesis();
+		model.addAttribute("thesis",thesis);
+		return "pitHome";
+	}
+
+	@RequestMapping(value = "/pit", method = RequestMethod.POST) 
+	public String pitThesis(@ModelAttribute("thesis") Thesis thesis, BindingResult result) {
+		thesisService.SaveStudentThesis(thesis);
+		return "redirect:/success2";
+	}
+	
+
+	@RequestMapping(value = "/pecon", method = RequestMethod.GET) 
+	public String peconThesis(Model model) {
+		Thesis thesis = new Thesis();
+		model.addAttribute("thesis",thesis);
+		return "pEconHome";
+	}
+	
+	@RequestMapping(value = "/pecon", method = RequestMethod.POST) 
+	public String peconThesis(@ModelAttribute("thesis") Thesis thesis, BindingResult result) {
+		thesisService.SaveStudentThesis(thesis);
+		return "redirect:/success2";
+	}
+	@RequestMapping(value = "/pdiet", method = RequestMethod.GET) 
+	public String pdietThesis(Model model) {
+		Thesis thesis = new Thesis();
+		model.addAttribute("thesis",thesis);
+		return "pdietHome";
+	}
+	
+	@RequestMapping(value = "/pdiet", method = RequestMethod.POST) 
+	public String pdietThesis(@ModelAttribute("thesis") Thesis thesis, BindingResult result) {
+		thesisService.SaveStudentThesis(thesis);
+		return "redirect:/success2";
+	}
+	@RequestMapping(value = "/pgeography", method = RequestMethod.GET) 
+	public String pgeoThesis(Model model) {
+		Thesis thesis = new Thesis();
+		model.addAttribute("thesis",thesis);
+		return "pgeoHome";
+	}
+
+	@RequestMapping(value = "/pgeography", method = RequestMethod.POST) 
+	public String pgeoThesis(@ModelAttribute("thesis") Thesis thesis, BindingResult result) {
+		thesisService.SaveStudentThesis(thesis);
+		return "redirect:/success2";
+	}
+
 }

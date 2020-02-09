@@ -25,7 +25,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="<c:url value="/resources/js/Geothesis.js" />"></script>
+
 <meta charset="UTF-8">
 <title>Τμήμα Πληροφορικής και Τηλεματικής</title>
 </head>
@@ -33,7 +33,7 @@
 <div align="center">
 <p><b><font size="5">Καλώς Ήρθατε Στο Σύστημα Δηλώσεων</font></b></p> <p><b><font size="5">Πτυχιακών Εργασιών Του Προπτυχιακού Τμήματος</font></b></p>
 <p>Επιλέξτε μια απο τις παρακάτω πτυχιακές εργασίες</p>
-	<form:form method="POST" action="success2">
+	<form:form method="POST" action="itHome">
 	
 		<table>
 			<%
@@ -46,7 +46,7 @@
 		%>
 			<tr>
 				
-				<input type="radio" name="<%=resultSet.getString("subject") %>" value="<%=resultSet.getString("subject")%>"> <%=resultSet.getString("subject")%><br>
+				<input type="radio" name="subject" value="<%=resultSet.getString("subject")%>"> <%=resultSet.getString("subject")%><br>
 					
 			</tr>
 			

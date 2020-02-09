@@ -148,8 +148,8 @@ input[type=submit] {
 	<div class="sidenav">
 		<br> <br> <a href="/Springmvc1/addStudent">Εισαγωγή
 			Χρήστη</a> <a href="/Springmvc1/deleteStudent">Διαγραφή Χρήστη</a> <a
-			href="/Springmvc1/updateStudent">Ανανέωση Χρήστη</a> <a
-			href="/Springmvc1/deleteRole">Διαγραφή ρόλου</a>
+			href="/Springmvc1/updateStudent">Ανανέωση Χρήστη</a> 
+			
 	</div>
 	<div align="middle">
 		<p>

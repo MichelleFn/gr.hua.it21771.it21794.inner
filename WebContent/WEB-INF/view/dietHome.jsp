@@ -58,7 +58,7 @@ top:20px;
 		<p>Επιλέξτε μια απο τις παρακάτω πτυχιακές εργασίες</p>
 
 
-		<form:form method="POST" action="success2">
+		<form:form method="POST" action="dietHome">
 			<p></p>
 o			<p></p>
 			<p></p>

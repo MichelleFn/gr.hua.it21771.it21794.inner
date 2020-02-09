@@ -77,7 +77,7 @@ input[type="radio"].fancy:disabled + label::before {
 <div align="center">
 <p><b><font size="5">Καλώς Ήρθατε Στο Σύστημα Δηλώσεων</font></b></p> <p><b><font size="5">Πτυχιακών Εργασιών Του Προπτυχιακού Τμήματος</font></b></p>
 <p>Επιλέξτε μια απο τις παρακάτω πτυχιακές εργασίες</p>
-	<form:form method="POST" action="success2">
+	<form:form method="POST" action="geoHome">
 	<div>
 
 		<table>

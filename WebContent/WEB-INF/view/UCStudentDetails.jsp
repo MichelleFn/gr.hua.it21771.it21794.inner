@@ -104,11 +104,7 @@
 
 	}
 </script>
-<script>
-	function myFunction() {
-		alert("Η εισαγωγή ολοκληρώθηκε με επιτυχία");
-	}
-</script>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -119,11 +115,6 @@
 		<div class="ui segment">
 			<br>
 			<h3>Εισαγωγή Χρήστη</h3>
-
-
-			<div class="alert alert-success" role="alert">
-				<h4 class="alert-heading">Well done!</h4>
-			</div>
 			
 			<h2>
 				<spring:message code="lbl.page" text="Add New Student" />

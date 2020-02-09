@@ -33,7 +33,7 @@
 <div align="center">
 <p><b><font size="5">Καλώς Ήρθατε Στο Σύστημα Δηλώσεων</font></b></p> <p><b><font size="5">Πτυχιακών Εργασιών Του Μεταπτυχιακού Τμήματος</font></b></p>
 <p>Επιλέξτε μια απο τις παρακάτω πτυχιακές εργασίες</p>
-	<form:form method="POST" action="success2">
+	<form:form method="POST" action="pdiet">
 	
 		<table>
 			<%

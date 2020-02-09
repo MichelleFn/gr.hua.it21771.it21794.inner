@@ -45,35 +45,6 @@ public class UserCatalogueController {
 		return "redirect:/addStudent";
 	}
 
-//	@RequestMapping(value = "/addRole", method = RequestMethod.GET) // loads page to add role
-//	public String setupFormIsertRole(Model model) {
-//		Authorities authority = new Authorities();
-//		model.addAttribute("authorities", authority);
-//		return "UCInsertRole";
-//	}
-//
-//	@RequestMapping(value = "/addRole", method = RequestMethod.POST) // adds role and loads page again
-//	public String submitFormInsertRole(@ModelAttribute("Authorities") Authorities authority, BindingResult result
-//			) {
-//
-//		authservice.InsertRole(User);
-//		return "redirect:/addRole";
-//	}
-
-	@RequestMapping(value = "/deleteRole", method = RequestMethod.GET) // loads delete form
-	public String setupDeleteForm(Model model) {
-		Authorities authority = new Authorities();
-		model.addAttribute("authorities", authority);
-		return "UCDeleteRole";
-	}
-
-	@RequestMapping(value = "/deleteRole", method = RequestMethod.POST) // deletes role
-	public String submitFormDeleteRole(@ModelAttribute("Authorities") Authorities authority, BindingResult result,
-			SessionStatus status) {
-		status.setComplete();
-		authservice.DeleteRole(authority);
-		return "redirect:/addRole";
-	}
 
 	@RequestMapping(value = "/updateStudent", method = RequestMethod.GET) // loads update page
 	public String setupFormSDetailsUpdate(Model model) {
