@@ -16,6 +16,7 @@
 	function DisableTextBoxUnder() {
 		var under = document.getElementById("under");
 		var firstName = document.getElementById("firstName");
+		
 		var surname = document.getElementById("surname");
 		var currentSemester = document.getElementById("currentSemester");
 		var totalClasses = document.getElementById("totalClasses");
