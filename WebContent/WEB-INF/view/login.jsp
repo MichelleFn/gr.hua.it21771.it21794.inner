@@ -21,11 +21,11 @@
 	</c:if>
 	
 			<br>
-			<input type="text" id ="username" placeholder="Όνομα Χρήστη" name="username" required/>
+			<input type="text" id ="username1" placeholder="Όνομα Χρήστη" name="username" required/>
 		
 			<br>
 			<br>
-			<input type="password" id="password" placeholder="Κωδικός Πρόσβασης" name="password" required/><br><br>
+			<input type="password" id="password1" placeholder="Κωδικός Πρόσβασης" name="password" required/><br><br>
 			<button class="myButton" type="submit">Σύνδεση</button>
 	 
       

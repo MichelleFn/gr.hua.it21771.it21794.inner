@@ -25,6 +25,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript">
+
+		function init() {
+			document.getElementById('MyText').style.display='none';
+		}   
+        function onClick(){
+        	document.getElementById('MyText').style.display='block';
+        }
+ 
+
+</script>
 
 <meta charset="UTF-8">
 <title>Τμήμα Πληροφορικής και Τηλεματικής</title>
@@ -62,11 +73,11 @@ input[type="radio"].fancy:disabled + label::before {
 }
 </style>
 </head>
-<body>
+<body onload="init()">
 <div align="center">
 <p><b><font size="5">Καλώς Ήρθατε Στο Σύστημα Δηλώσεων</font></b></p> <p><b><font size="5">Πτυχιακών Εργασιών Του Προπτυχιακού Τμήματος</font></b></p>
 <p>Επιλέξτε μια απο τις παρακάτω πτυχιακές εργασίες</p>
-	<form:form method="POST" action="geoHome">
+	<form:form method="POST" action="success2">
 	<div>
 
 		<table>
@@ -80,9 +91,11 @@ input[type="radio"].fancy:disabled + label::before {
 			%>
 			<tr>
 
-				<input class="fancy" type="radio" id="radio1" name="subject"
-					value="<%=resultSet.getString("subject")%>">
-				<%=resultSet.getString("subject")%><br>
+				<input type="radio" id="id"
+						name="<%=resultSet.getString("subject")%>"
+						value="<%=resultSet.getString("subject")%>" onclick="onClick()">
+					<%=resultSet.getString("subject")%><br>
+					<div id="MyText"><%=resultSet.getString("description")%></div>
 				
 
 			</tr>
@@ -95,7 +108,7 @@ input[type="radio"].fancy:disabled + label::before {
 					}
 			%>
 			<tr>
-				<td colspan="3"><input type="submit" /></td>
+				<td colspan="3"><button class="myButton" type="submit" />Υποβολή</button></td>
 			</tr>
 		</table>
 		</div>

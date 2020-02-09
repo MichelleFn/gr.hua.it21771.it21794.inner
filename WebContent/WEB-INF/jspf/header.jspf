@@ -110,13 +110,13 @@ body {
 	top: 1px;
 }
 
-#username {
+#username1 {
 	border: 0;
 	outline: 0;
 	border-bottom: 2px solid blue;
 	background-color: #acfafc;
 }
-#password {
+#password1 {
 	border: 0;
 	outline: 0;
 	border-bottom: 2px solid blue;
@@ -178,7 +178,7 @@ body {
 					<div class="topnav">
 						<a href="<c:url value="/" />">Home</a> 
 						<a href="<c:url value="/logout" />">Logout</a> 
-						<a href="#about">About</a>
+						<a href="<c:url value="/about" />">Help</a> 
 				
 					</div>
 

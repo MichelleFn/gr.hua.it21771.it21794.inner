@@ -41,21 +41,7 @@ public class UserCatalogueController {
 	@RequestMapping(value = "/addStudent", method = RequestMethod.POST) // adds student and loads the page again for a
 																		// new student to be added
 	public String submitFormSDetails(@ModelAttribute("user") User user, BindingResult result) {
-//		status.setComplete();
-		Set<Authorities> authorities = new HashSet<>();	
-		Authorities auth = new Authorities();
-		auth.setAuthority(user.getAuthorities().toString());
-		authorities.add(auth);
-		
-//		authorities.add(auth);
-		
-		System.out.println(user.getAuthorities().toString());
-//		System.out.println(user.getAuthorities());
-//		daouserservice.SaveUserDetailsService(user);
-//		authservice.InsertRole(user, authorities.toString());
-//		authservice.InsertRole(user, user.getAuthorities().toString());
-		
-		
+		daouserservice.SaveUserDetailsService(user);
 		return "redirect:/addStudent";
 	}
 

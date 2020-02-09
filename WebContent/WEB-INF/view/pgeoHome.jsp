@@ -26,11 +26,20 @@
 <html>
 <head>
 <script src="<c:url value="/resources/js/Geothesis.js" />"></script>
+
+<script>
+function myFunction() {
+  alert("Hello! I am an alert box!");
+}
+</script>
 <meta charset="UTF-8">
-<title>Τμήμα Πληροφορικής και Τηλεματικής</title>
+<title></title>
 </head>
 <body>
-	<form:form method="POST" action="geoHome">
+<div align="center">
+<p><b><font size="5">Καλώς Ήρθατε Στο Σύστημα Δηλώσεων</font></b></p> <p><b><font size="5">Πτυχιακών Εργασιών Του Μεταπτυχιακού Τμήματος</font></b></p>
+<p>Επιλέξτε μια απο τις παρακάτω πτυχιακές εργασίες</p>
+	<form:form method="POST" action="success2">
 	
 		<table>
 			<%
@@ -55,7 +64,9 @@
 			}
 		    %>
 			<tr>
-				<td colspan="3"><input type="submit" /></td>
+				<td colspan="3"><button class="myButton" type="submit" />Υποβολή</button></td>
+				
+
 			</tr>
 		</table>
 	</form:form>

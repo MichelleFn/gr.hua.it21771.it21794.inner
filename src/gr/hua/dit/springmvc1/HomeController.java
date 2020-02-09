@@ -59,6 +59,16 @@ public class HomeController {
 		return "pitHome";
 	}
 	
+	@RequestMapping("/success2")
+	public String success() {
+		return "success2";
+	}
+	
+	@RequestMapping("/about")
+	public String abiut() {
+		return "about";
+	}
+	
 	
 	
 	
