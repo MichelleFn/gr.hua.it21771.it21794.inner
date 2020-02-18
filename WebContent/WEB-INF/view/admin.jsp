@@ -8,10 +8,10 @@
 </head>
 <body>
 	<div align="center">
-		<p>Ενεργοποίηση φοιτητών για δήλωση πτυχιακής</p>
+		<p><b><font size="5">Ενεργοποίηση φοιτητών για δήλωση πτυχιακής</font></b></p>
 
 		<form action="enableUser" method="POST">
-			<input type="submit" value="ENABLE" />
+			<button class="myButton" type="submit"/>Ενεργοποίηση</button>
 		</form>
 </body>
 </html>
