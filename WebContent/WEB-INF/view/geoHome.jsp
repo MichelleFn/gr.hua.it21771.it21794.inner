@@ -4,7 +4,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<!--this is tempory-->
+
 <%
 	String id = request.getParameter("userid");
 	String driver = "com.mysql.jdbc.Driver";
@@ -25,17 +25,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">
 
-		function init() {
-			document.getElementById('MyText').style.display='none';
-		}   
-        function onClick(){
-        	document.getElementById('MyText').style.display='block';
-        }
- 
-
-</script>
 
 <meta charset="UTF-8">
 <title>Τμήμα Πληροφορικής και Τηλεματικής</title>
@@ -95,7 +85,7 @@ input[type="radio"].fancy:disabled + label::before {
 						name="<%=resultSet.getString("subject")%>"
 						value="<%=resultSet.getString("subject")%>" onclick="onClick()">
 					<%=resultSet.getString("subject")%><br>
-					<div id="MyText"><%=resultSet.getString("description")%></div>
+					
 				
 
 			</tr>

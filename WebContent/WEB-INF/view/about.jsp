@@ -11,7 +11,7 @@ ul.a {
 }</style>
 </head>
 <body>
-<div align="left">
+<div align="center">
 <sec:authorize access="hasRole('ROLE_MASTER')">
 
 

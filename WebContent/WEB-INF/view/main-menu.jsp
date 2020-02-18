@@ -25,51 +25,6 @@
 						Χαροκοπείου Πανεπιστημίου </b> </font>
 			</p>
 
-<!--  
-			<div align="center">
-
-
-				<form action="geography">
-					<button type="submit" class="btn btn-primary">Τμήμα
-						Γεωγραφίας - Προπτυχιακό</button>
-				</form>
-				<br>
-				<form action="pgeography">
-					<button type="submit" class="btn btn-primary">Τμήμα
-						Γεωγραφίας - Μεταπτυχιακό</button>
-				</form>
-				<br>
-				<form action="diet">
-					<button type="submit" class="btn btn-primary">Τμήμα
-						Επιστήμης Διαιτολογίας και Διατροφής -Προπτυχιακό</button>
-				</form>
-				<br>
-				<form action="pdiet">
-					<button type="submit" class="btn btn-primary">Τμήμα
-						Επιστήμης Διαιτολογίας και Διατροφής - Μεταπτυχιακό</button>
-				</form>
-				<br>
-				<form action="econ">
-					<button type="submit" class="btn btn-primary">Τμήμα
-						Οικοιακής Οικονομίας και Οικολογίας - Προπτυχιακό</button>
-				</form>
-				<br>
-				<form action="pecon">
-					<button type="submit" class="btn btn-primary">Τμήμα
-						Οικοιακής Οικονομίας και Οικολογίας - Μεταπτυχιακό</button>
-				</form>
-				<br>
-				<form action="it">
-					<button type="submit" class="btn btn-primary">Τμήμα
-						Πληροφορικής και Τηλεματικής - Προπτυχιακό</button>
-				</form>
-				<br>
-				<form action="pit">
-					<button type="submit" class="btn btn-primary">Τμήμα
-						Πληροφορικής και Τηλεματικής - Mεταπτυχιακό</button>
-				</form>
-
-	-->
 	</sec:authorize>
 
 

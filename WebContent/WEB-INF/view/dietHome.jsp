@@ -4,7 +4,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<!--this is tempory-->
+
 <%
 	String id = request.getParameter("userid");
 	String driver = "com.mysql.jdbc.Driver";
@@ -26,17 +26,7 @@
 <html>
 <head>
 <script src="<c:url value="/resources/js/Geothesis.js" />"></script>
-<script type="text/javascript">
 
-		function init() {
-			document.getElementById(id1).style.display='none';
-		}   
-        function onClick(){
-        	document.getElementById(id1)).style.display='block';
-        }
- 
-
-</script>
 <meta charset="UTF-8">
 <title>Τμήμα Πληροφορικής και Τηλεματικής</title>
 </head>
@@ -46,7 +36,7 @@ position :absolute;
 left:80px;
 top:20px;
 </style>
-<body onload="init()">
+<body>
 	<div align="center">
 		<p>
 			<b><font size="5">Καλώς Ήρθατε Στο Σύστημα Δηλώσεων</font></b>
@@ -83,10 +73,10 @@ o			<p></p>
 						value="<%=resultSet.getString("subject")%>" onclick="onClick()">
 					<%=resultSet.getString("subject")%><br>
 					
-					<div id="<%=id1%>"><%=resultSet.getString("description")%></div>
+					
 
 				</tr>
-				<%id1=id1+1; %>
+				
 
 				<%
 					}
