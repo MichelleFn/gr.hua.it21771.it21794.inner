@@ -230,7 +230,7 @@ public class User implements Serializable {
 				+ firstName + ", surname=" + surname + ", currentSemester=" + currentSemester + ", totalClasses="
 				+ totalClasses + ", passedClasses=" + passedClasses + ", failedClasses=" + failedClasses + ", enabled="
 				+ enabled + ", progressIndicator="  + ", direction=" + direction + ", program="
-				+ program + "]";
+				+ program + ", role="+ role + "]";
 	}
 	
 	public String hashPassword(String password){

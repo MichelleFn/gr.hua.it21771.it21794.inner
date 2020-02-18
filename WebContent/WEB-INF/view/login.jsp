@@ -17,7 +17,7 @@
 
 	<form:form action="${pageContext.request.contextPath}/authUser" method="POST">
 	<c:if test="${param.error != null}">
-		<i>Sorry! Invalid username/password!</i>
+		<i>Sorry! Invalid username/password or you are not enabled</i>
 	</c:if>
 	
 			<br>

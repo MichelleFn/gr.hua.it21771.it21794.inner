@@ -238,14 +238,14 @@
 						<td><label>Κατεύθυνση*</label> <spring:message
 								code="direction" text="Direction" /></td>
 						<td><form:input path="direction" id="direction"
-								disabled="disabled" required="true" /></td>
+								disabled="disabled" required="true"/></td>
 					</tr>
 					<tr>
 
 						<td><label>Πρόγραμμα*</label> <spring:message code="program"
 								text="program" /></td>
 						<td><form:input path="program" id="program"
-								disabled="disabled" required="true" /></td>
+								disabled="disabled" required="true"/></td>
 
 					</tr>
 

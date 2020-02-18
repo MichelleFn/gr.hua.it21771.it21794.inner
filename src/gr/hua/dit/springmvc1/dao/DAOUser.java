@@ -23,6 +23,5 @@ public interface DAOUser {
 	
 	public void Enable();
 	
-	public List<User> getListOfStudentsForThesis(String sub);
 
 }

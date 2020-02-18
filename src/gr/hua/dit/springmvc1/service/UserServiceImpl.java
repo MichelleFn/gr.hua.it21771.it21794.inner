@@ -19,7 +19,6 @@ public class UserServiceImpl implements UserService{
 	DAOUser DAOuser;
 	
 
-
 	@Transactional
 	@Override
 	public List<User> getListOfUsersService() {
@@ -29,7 +28,6 @@ public class UserServiceImpl implements UserService{
 	@Transactional
 	@Override
 	public User getUserService(String username) {
-		
 		return DAOuser.getUser(username);
 	}
 
@@ -73,12 +71,7 @@ public class UserServiceImpl implements UserService{
 	public void EnableService() {
 		DAOuser.Enable();
 		
-	}
-
-	@Override
-	public List<User> getListOfStudentService(String sub) {
-		return DAOuser.getListOfStudentsForThesis(sub);
-	}
+}
 	
 	
 	

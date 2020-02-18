@@ -42,10 +42,17 @@ public class DAOUserImpl implements DAOUser {
 
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.getAuthorities();
+		try {
+		if(user.getDirection() == null && user.getProgram() == null) {
+			user.setDirection("");
+			user.setProgram("");
+		}
+		}catch(Exception e) {
+			System.out.println("ERROR");
+		}
 		currentSession.save(user);
 		daoauthorities.InsertRole(user);
 		
-
 
 	}
 	
@@ -63,20 +70,7 @@ public class DAOUserImpl implements DAOUser {
 		}
 
 	}
-//	public void DeleteUserDetails(String username) {
-//		//sessionFactory = new Configuration().configure().buildSessionFactory();
-//		Session session = sessionFactory.openSession();
-//		//session.beginTransaction();
-//         
-//		User user = getUser(username);
-//		Authorities authority=new Authorities();
-//		authority=session.get(Authorities.class,user.getUsername());
-//		session.delete(authority);
-//		session.delete(user);
-//		//session.getTransaction().commit();
-//		//session.close();
-//
-//	}
+
 
 	@Override
 	public void InsertSupportedServices() {
@@ -93,13 +87,20 @@ public class DAOUserImpl implements DAOUser {
 	@Override
 	public void Enable() {
 		List<User> Users = getListOfUsers();
+		System.out.println(Users);
 		for (User user : Users) {
+			try {
 			if (user.getDirection().equals("") && user.getProgram().equals("") && user.getEnabled() == false) {
 				if (user.getCurrentSemester() >= 7 && user.getFailedClasses() <= 3) {
 					user.setEnabled(true);
 					UpdateUser(user);
 				}
 			}
+			}catch (Exception e) {
+				System.out.println("An Exception Occured");
+			}
+			
+			try {
 			if (user.getDirection().isEmpty() != true && user.getDirection().isEmpty() != true
 					&& user.getEnabled() == false) {
 				if (user.getCurrentSemester() >= 3 && user.getFailedClasses() <= 1) {
@@ -107,9 +108,16 @@ public class DAOUserImpl implements DAOUser {
 					UpdateUser(user);
 				}
 			}
+			}catch (Exception e) {
+				System.out.println("An exception");
+			}
+			
+			
 		}
-
+		
+		
 	}
+	
 
 	@Override
 	public List<User> getListOfUsers() {
@@ -127,44 +135,11 @@ public class DAOUserImpl implements DAOUser {
 	public void UpdateUser(User user) {
 
 		Session session = sessionFactory.getCurrentSession();
-
-//		if (user.getUsername().equals("")) {
-
-//		} else {
-
 		session.update(user);
 
-//		}
-		
 
 	}
 
 
-	@Override
-	public List<User> getListOfStudentsForThesis(String sub) {
-
-		Session session = sessionFactory.getCurrentSession();
-
-		Query<User> query = session.createQuery("from User u where u.subject LIKE '%sub%'", User.class);
-
-		List<User> Users = query.getResultList();
-		System.out.println(Users);
-		return Users;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
