@@ -69,43 +69,6 @@ public class HomeController {
 		return "about";
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	
-//	@RequestMapping(value = "/it", method = RequestMethod.GET) // loads page for entering user details
-//	public String applyThesis(Model model) {
-//		User user = new User();
-//		model.addAttribute("user", user);
-//		return "itHome";
-//	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 
 }
