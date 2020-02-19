@@ -20,12 +20,14 @@ public class DAOAuthoritiesImpl implements DAOAuthorities {
 
 	@Autowired
 	SessionFactory sessionFactory;
+	
 	@Autowired
 	DAOUser DAOUser;
 
 	@Override
 	public void InsertRole(User user) {
 
+		//getting user object from jsp form
 		Session session = sessionFactory.getCurrentSession();
 		Authorities authority = new Authorities();
 		authority.setUser(user);
