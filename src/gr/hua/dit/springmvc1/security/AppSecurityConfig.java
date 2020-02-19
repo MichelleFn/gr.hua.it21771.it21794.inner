@@ -35,16 +35,6 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	}
 
-//	@Override
-//	protected void configure(HttpSecurity http) throws Exception {
-//		http.authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage("/login")
-//				.loginProcessingUrl("/authUser").permitAll()
-//				.and().logout().permitAll().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll()
-//				.and().exceptionHandling()
-//				.accessDeniedPage("/403")
-//				.and().csrf().disable();
-//
-//	}
 	
 	
 	@Configuration

@@ -13,6 +13,7 @@
 <head>
 
 <script type="text/javascript">
+<!-- These methods disable some form fields based of the type of user that is being inserted into user catalogue--> 
 	function DisableTextBoxUnder() {
 		var under = document.getElementById("under");
 		var firstName = document.getElementById("firstName");

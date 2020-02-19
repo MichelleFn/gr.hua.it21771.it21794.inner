@@ -13,6 +13,7 @@ import gr.hua.dit.springmvc1.entity.User;
 @Controller
 public class HomeController {
 	
+	//Controllers to jsp pages
 	
 	@RequestMapping("/")
 	public String showfirstpage() {

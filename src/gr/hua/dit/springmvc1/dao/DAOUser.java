@@ -7,6 +7,7 @@ import gr.hua.dit.springmvc1.entity.User;
 
 
 public interface DAOUser {
+	
 	public List<User> getListOfUsers();
 	
 	public User getUser(String username);

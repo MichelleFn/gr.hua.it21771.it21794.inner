@@ -25,6 +25,7 @@ public class DAOThesisImpl implements DAOThesis {
 
 	@Override
 	public List<Thesis> GetListOfThesis() {
+		
 
 		Session currentSession = sessionFactory.getCurrentSession();
 		Query<Thesis> query = currentSession.createQuery("from Thesis", Thesis.class);
@@ -44,16 +45,21 @@ public class DAOThesisImpl implements DAOThesis {
 	@Override
 	public void SaveStudentThesis(Thesis thesis) {
 		Session currentSession = sessionFactory.getCurrentSession();
-
+		//get the id of the user that is logged in
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if (principal instanceof UserDetails) {
+			
+			//get the user name of the logged in user
 			String username = ((UserDetails) principal).getUsername();
+			//getting the whole user object from database using username
 			User user = DAOUser.getUser(username);
 			if (user.getEnabled() == false) {
 				System.out.println("You are not enabled to choose a thesis yet");
 
 			} else {
+				//adding new thesis field to current user
 				user.setThesisName(thesis.getSubject());
+				//updating the user
 				DAOUser.UpdateUser(user);
 			}
 

@@ -30,12 +30,17 @@ public class StudentRestController {
 	@Autowired
 	ThesisService thesisserv;
 
+	//we added cross origin annotation because we kept getting a cross origin error
+	
 	@CrossOrigin(origins = "http://localhost:8080")
 	@ResponseBody
 	@GetMapping("/users")
 	public List<User> StudentList() {
 		return userser.getListOfUsersService();
 	}
+	
+	
+	
 	@CrossOrigin(origins = "http://localhost:8080")
 	@PostMapping(value = "/thesis", consumes = "application/json", produces = "application/json")
 	public void postThesis(@RequestBody Thesis thesis) {

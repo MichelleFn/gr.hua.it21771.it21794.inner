@@ -21,6 +21,7 @@ public class UserCatalogueController {
 
 	@Autowired
 	DAOUser daouser;
+	
 	@Autowired
 	UserService daouserservice;
 
@@ -56,8 +57,6 @@ public class UserCatalogueController {
 	@RequestMapping(value = "/updateStudent", method = RequestMethod.POST) // updates student
 	public String submitFormSDetailsUpdate(@ModelAttribute("user") User user, BindingResult result,
 			SessionStatus status) {
-
-		// Mark Session Complete
 		status.setComplete();
 		daouserservice.UpdateUserService(user);
 		return "redirect:/updateStudent";
@@ -73,8 +72,6 @@ public class UserCatalogueController {
 	@RequestMapping(value = "/deleteStudent", method = RequestMethod.POST) // deletes student
 	public String submitFormSDetailsDelete(@ModelAttribute("user") User user, BindingResult result,
 			SessionStatus status) {
-
-		// Mark Session Complete
 		status.setComplete();
 		daouserservice.DeleteUserDetailsService(user.getUsername());
 		return "redirect:/deleteStudent";

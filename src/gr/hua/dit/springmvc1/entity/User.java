@@ -60,7 +60,7 @@ public class User implements Serializable {
 	@Column(name = "ThesisName")
 	private String ThesisName;
 	
-	@Column(name = "role")
+	@Column(name = "role") //this is just a field we use because we couldn't use the oneToMany relation
 	private String role;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch=FetchType.EAGER, mappedBy = "user")
